@@ -1,7 +1,8 @@
+import ItemListContainer from "./components/ItemListContainer";
 const Main = () => {
   return (
     <main className="main">
-      <h1>Bienvenido</h1>
+      <ItemListContainer user="Usuario" />
     </main>
   );
 };

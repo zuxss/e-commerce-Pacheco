@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget";
+
 const NavBar = () => {
   return (
     <nav className="navBar">
@@ -5,6 +7,9 @@ const NavBar = () => {
         <ul> Tienda Pokémon </ul>
       </div>
       <div className="navBar__items">
+        <li>
+          <CartWidget cantidad="0" />
+        </li>
         <li>
           <a href="#">Inicio</a>
         </li>
