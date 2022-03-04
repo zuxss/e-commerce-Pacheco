@@ -8,7 +8,7 @@ const NavBar = () => {
       </div>
       <div className="navBar__items">
         <li>
-          <CartWidget cantidad="0" />
+          <CartWidget itemCount="0" />
         </li>
         <li>
           <a href="#">Inicio</a>

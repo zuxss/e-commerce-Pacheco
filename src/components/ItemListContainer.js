@@ -5,5 +5,7 @@ const ItemListContainer = ({ user }) => {
     </div>
   );
 };
-
+ItemListContainer.defaultProps = {
+  user: "Usuario",
+};
 export default ItemListContainer;

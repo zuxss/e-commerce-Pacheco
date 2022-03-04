@@ -1,8 +1,8 @@
-const CartWidget = ({ cantidad }) => {
+const CartWidget = ({ itemCount }) => {
   return (
     <div>
       <span class="material-icons">shopping_cart </span>
-      {cantidad}
+      {itemCount}
     </div>
   );
 };
