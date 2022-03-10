@@ -25,8 +25,6 @@ function ItemCount() {
 
   return (
     <div className="div__itemcount">
-      <h3>Juego Pokémon</h3>
-      <h4>Cantidad</h4>
       <div className="div__itemcount-botonera">
         <button className="button__restar" onClick={HandleRestar}></button>
         <p>{itemCount}</p>
@@ -40,3 +38,6 @@ function ItemCount() {
 }
 
 export default ItemCount;
+export function HandleAgregar(itemCount) {
+  useState(itemCount);
+}
