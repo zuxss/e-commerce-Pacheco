@@ -38,6 +38,3 @@ function ItemCount() {
 }
 
 export default ItemCount;
-export function HandleAgregar(itemCount) {
-  useState(itemCount);
-}

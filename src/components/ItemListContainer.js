@@ -1,46 +1,34 @@
-import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
-const Productos = [
-  {
-    id: 1,
-    title: "Pokémon Rojo",
-    price: 100,
-    description: "Gameboy",
-  },
-  {
-    id: 2,
-    title: "Pokémon Azúl",
-    price: 100,
-    description: "Gameboy",
-  },
-  {
-    id: 3,
-    title: "Pokémon Plata",
-    price: 100,
-    description: "Gameboy",
-  },
-];
 const ItemListContainer = () => {
-  const [item, setData] = useState([]);
-  const [loading, setIsLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [item, setItem] = useState([]);
+  const { idCategoria } = useParams();
 
   useEffect(() => {
-    setIsLoaded(false);
-    toast("Cargando Productos...");
-    setTimeout(() => {
-      setData(Productos);
-      setIsLoaded(true);
-      toast.dismiss();
-    }, 2000);
-  }, []);
+    toast.info("Cargando productos...");
 
-  return (
-    <div>
-      {loading ? <ItemList item={item} /> : <div>Cargando Productos...</div>}
-    </div>
-  );
+    fetch("./item.json")
+      .then((response) => response.json())
+      .then((resultado) => {
+        setItem(resultado);
+      })
+      .catch(() => {
+        toast.error("Error");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [idCategoria]);
+
+  if (loading) {
+    return <h1>Cargando...</h1>;
+  } else {
+    return <ItemList productos={item} />;
+  }
 };
 
 export default ItemListContainer;

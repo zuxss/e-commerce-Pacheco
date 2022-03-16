@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Pokemon Rojo",
+    "price": 200,
+    "description": "Videojuego",
+    "category": "VideoGame",
+    "image": "https://static.wikia.nocookie.net/espokemon/images/d/db/Car%C3%A1tula_de_Pok%C3%A9mon_Rojo.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Pokemon Azul",
+    "price": 200,
+    "description": "Videojuego",
+    "category": "VideoGame",
+    "image": "https://static.wikia.nocookie.net/espokemon/images/9/9d/Car%C3%A1tula_de_Pok%C3%A9mon_Azul.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Pokemon Amarillo",
+    "price": 200,
+    "description": "Videojuego",
+    "category": "VideoGame",
+    "image": "https://static.wikia.nocookie.net/espokemon/images/9/95/Pok%C3%A9mon_Amarillo.png"
+  },
+  {
+    "id": 4,
+    "title": "Pokemon Oro",
+    "price": 200,
+    "description": "Videojuego",
+    "category": "VideoGame",
+    "image": "https://static.wikia.nocookie.net/espokemon/images/6/6b/Pokemon_Edici%C3%B3n_Oro.jpg"
+  }
+]
