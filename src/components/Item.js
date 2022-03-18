@@ -1,20 +1,23 @@
 import { Link } from "react-router-dom";
-import ItemDetailContainer from "./Item";
-const Item = ({ item }) => {
-  return (
-    <div className="producto">
-      <img src={item.image} />
-      <h4>{item.title}</h4>
-      <p>{item.description}</p>
-      <p>${item.price}</p>
 
-      <Link
-        className="linkitem"
-        to={`/producto/${item.id}`}
-        element={<ItemDetailContainer />}
-      >
-        Ver detalle
-      </Link>
+const Item = ({ product }) => {
+  return (
+    <div
+      style={{
+        margin: "10px",
+        border: "1px solid black",
+        borderRadius: "5px",
+        padding: "5px",
+      }}
+    >
+      <img src={product.img} alt={product.name} width={200} />
+      <div>
+        <h4>{product.title}</h4>
+        <h4>$ {product.price}</h4>
+      </div>
+      <div style={{ marginBottom: "10px" }}>
+        <Link to={`/detail/${product.id}`}>Ver detalle</Link>
+      </div>
     </div>
   );
 };

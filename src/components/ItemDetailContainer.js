@@ -1,33 +1,38 @@
-import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
 
+import React, { useState, useEffect } from "react";
+
+import ItemDetail from "./ItemDetail";
+import { traerProducto } from "./items";
+import { useParams } from "react-router";
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
-  const { idItem } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch(`./item.json${idItem}`)
-      .then((response) => {
-        return response.json();
+    toast.info("Cargando productos...");
+    setLoading(true);
+    traerProducto(id)
+      .then((res) => {
+        setItem(res);
       })
-      .then((respuesta) => {
-        setItem(respuesta);
-      })
-      .catch(() => {
-        toast.error("Error al cargar el producto");
+      .catch((error) => {
+        console.error(error);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+    return () => {
+      setItem({});
+    };
+  }, [id]);
 
-  if (loading) {
-    return <h1>Cargando...</h1>;
-  } else {
-    return <ItemDetail item={item} />;
-  }
+  return (
+    <div>
+      <ItemDetail item={item} />
+    </div>
+  );
 };
+
 export default ItemDetailContainer;

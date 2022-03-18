@@ -2,32 +2,43 @@ import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { traerProductos } from "./items";
 
 const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [item, setItem] = useState([]);
-  const { idCategoria } = useParams();
+  const { categoryId } = useParams();
 
   useEffect(() => {
     toast.info("Cargando productos...");
-
-    fetch("./item.json")
-      .then((response) => response.json())
-      .then((resultado) => {
-        setItem(resultado);
+    setLoading(true);
+    traerProductos(categoryId)
+      .then((res) => {
+        setItems(res);
       })
-      .catch(() => {
-        toast.error("Error");
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, [idCategoria]);
+
+    return () => {
+      setItems([]);
+    };
+  }, [categoryId]);
 
   if (loading) {
     return <h1>Cargando...</h1>;
   } else {
-    return <ItemList productos={item} />;
+    if ((categoryId != "products") & (categoryId != undefined)) {
+      let productosFiltrados = items.filter(function (obj) {
+        return obj.category === `${categoryId}`;
+      });
+      return <ItemList products={productosFiltrados} />;
+    } else {
+      return <ItemList products={items} />;
+    }
   }
 };
 

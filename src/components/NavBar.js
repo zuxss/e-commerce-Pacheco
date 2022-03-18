@@ -16,7 +16,10 @@ const NavBar = () => {
         </li>
 
         <li>
-          <a href="#">Catálogo de productos</a>
+          <NavLink to="/category/productos">Catálogo de productos</NavLink>
+        </li>
+        <li>
+          <NavLink to="/category/GameBoy">GameBoy</NavLink>
         </li>
         <li>
           <a href="#">Contacto</a>
