@@ -8,8 +8,8 @@ const Main = () => {
     <main className="main">
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/productos" element={<ItemListContainer />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/category/productos" element={<ItemListContainer />} />
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path="/detail/:id" element={<ItemDetailContainer />} />
       </Routes>

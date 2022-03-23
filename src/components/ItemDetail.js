@@ -4,13 +4,12 @@ import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
   const [cantidad, setCantidad] = useState(0);
+
   let navigate = useNavigate();
 
   const onAdd = (cantidad) => {
     setCantidad(cantidad);
-    setTimeout(() => {
-      navigate("/cart");
-    }, 3000);
+    navigate("/carrito");
   };
 
   return (
@@ -20,7 +19,7 @@ const ItemDetail = ({ item }) => {
         <h2>{item.title}</h2>
         <p>{item.description}</p>
         <h3>$ {item.price}</h3>
-        <ItemCount stock={item.stock} onAdd={onAdd} />
+        <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
       </div>
     </div>
   );

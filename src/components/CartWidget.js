@@ -1,9 +1,12 @@
-const CartWidget = ({ itemCount }) => {
+import { NavLink } from "react-router-dom";
+const CartWidget = () => {
   return (
-    <div>
-      <span className="material-icons">shopping_cart </span>
-      {itemCount}
-    </div>
+    <NavLink to="/cart">
+      <div className="icon">
+        <span className="material-icons">shopping_cart</span>
+        <p>0</p>
+      </div>
+    </NavLink>
   );
 };
 
