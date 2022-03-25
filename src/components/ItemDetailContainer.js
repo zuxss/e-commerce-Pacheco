@@ -1,5 +1,3 @@
-import { toast } from "react-toastify";
-
 import React, { useState, useEffect } from "react";
 
 import ItemDetail from "./ItemDetail";
@@ -11,7 +9,6 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    toast.info("Cargando productos...");
     setLoading(true);
     traerProducto(id)
       .then((res) => {

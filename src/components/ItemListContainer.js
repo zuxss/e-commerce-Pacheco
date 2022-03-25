@@ -1,6 +1,5 @@
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import { traerProductos } from "./items";
 
@@ -10,7 +9,6 @@ const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    toast.info("Cargando productos...");
     setLoading(true);
     traerProductos(categoryId)
       .then((res) => {
