@@ -30,7 +30,22 @@ const ItemDetail = ({ item }) => {
         {cantidad === 0 ? (
           <ItemCount stock={item.stock} onAdd={onAdd} />
         ) : (
-          <Link to="/carrito">Ir al carrito</Link>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Link to="/carrito">
+              <button className="button__agregar">Finalizar Compra</button>
+            </Link>
+            <Link to="/category/productos">
+              {" "}
+              <button className="button__agregar">Continuar Comprando</button>
+            </Link>
+          </div>
         )}
       </div>
     </div>
