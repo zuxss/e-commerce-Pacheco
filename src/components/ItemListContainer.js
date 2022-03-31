@@ -1,29 +1,40 @@
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { traerProductos } from "./items";
-
+import { db } from "./firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
+  const [items, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-    traerProductos(categoryId)
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (!categoryId) {
+      const productosCollection = collection(db, "productos");
+      const pedido = getDocs(productosCollection);
 
-    return () => {
-      setItems([]);
-    };
+      pedido
+        .then((res) => setProductos(res.docs.map((doc) => doc.data())))
+
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    } else {
+      const productosCollection = collection(db, "productos");
+      const filtro = query(
+        productosCollection,
+        where("category", "==", categoryId),
+        where("price", ">", 60)
+      );
+      const pedido = getDocs(filtro);
+
+      pedido
+        .then((res) => setProductos(res.docs.map((doc) => doc.data())))
+
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => setLoading(false));
+    }
   }, [categoryId]);
 
   if (loading) {
