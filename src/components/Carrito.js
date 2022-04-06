@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Carrito = () => {
-  const { cart, calcularTotal, vaciarCarrito, borrarProd } =
+  const { cart, calcularTotal, vaciarCarrito, cantidadProductos, borrarProd } =
     useContext(CartContext);
 
   return (
@@ -45,6 +45,7 @@ const Carrito = () => {
               </div>
             </div>
           ))}
+          <h2>Cantidad de productos:{cantidadProductos()}</h2>
           <h2>Total: ${calcularTotal()}</h2>
         </div>
       )}
@@ -59,6 +60,7 @@ const Carrito = () => {
       >
         {" "}
         <button onClick={vaciarCarrito}>Vaciar carrito</button>
+        <Link to="/checkout">Finalizar compra</Link>
       </div>
     </>
   );

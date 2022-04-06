@@ -41,6 +41,13 @@ export const CartContextProvider = ({ children }) => {
     });
     return totalCarrito;
   };
+  const cantidadProductos = () => {
+    let cantidadProcd = 0;
+    cart.forEach((item) => {
+      cantidadProcd += item.cantidad;
+    });
+    return cantidadProcd;
+  };
 
   const borrarProd = (id) => {
     setCart(cart.filter((item) => item.id !== id));
@@ -54,6 +61,7 @@ export const CartContextProvider = ({ children }) => {
         vaciarCarrito,
         calcularTotal,
         borrarProd,
+        cantidadProductos,
       }}
     >
       {children}
