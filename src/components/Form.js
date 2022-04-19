@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 
 function Form() {
   const { cart, calcularTotal } = useContext(CartContext);
@@ -77,7 +78,7 @@ function Form() {
 
     pedido
       .then((res) => {
-        toast.success("Compra exisitosa");
+        window.location.href = "/success";
       })
       .catch((error) => {
         toast.error("Ups...algo se rompió");
@@ -85,7 +86,7 @@ function Form() {
   };
 
   return (
-    <div>
+    <div className="formulario__envio">
       <form>
         <h2>Datos de Envio</h2>
         <h3>Nombre</h3>
@@ -128,7 +129,10 @@ function Form() {
           onChange={handleEmail}
           value={email}
         />
-        <button onClick={handleSubmit}>Comprar</button>
+
+        <button onClick={handleSubmit} id="enviar-button">
+          Comprar
+        </button>
       </form>
     </div>
   );

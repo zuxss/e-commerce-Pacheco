@@ -9,59 +9,47 @@ const Carrito = () => {
   return (
     <>
       {cart.length === 0 ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Link to="/">Inicio</Link>
+        <div className="carrito__vacio">
+          <h1> No hay items en el carrito</h1>
+          <h3>¡Vamos a comprar algo!</h3>
+          <Link to="/">
+            <button className="carrito__btn__inicio">Productos</button>
+          </Link>
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
+        <div className="carrito__container">
           {cart.map((product) => (
-            <div
-              style={{
-                margin: "10px",
-                border: "1px solid black",
-                borderRadius: "5px",
-                padding: "5px",
-              }}
-              key={product.id}
-            >
+            <div className="carrito__item" key={product.id}>
               <img src={product.img} alt={product.title} width="150px" />
-              <div style={{ marginRight: "20px" }}>
-                <h3>Nombre: {product.title}</h3>
+              <div className="carrito__item__text">
+                <h3>{product.title}</h3>
                 <h4>Cantidad: {product.cantidad}</h4>
                 <h4>Precio unitario: $ {product.price}</h4>
                 <h4>Subtotal: $ {product.price * product.cantidad}</h4>
-                <button onClick={() => borrarProd(product.id)}>Eliminar</button>
+                <button
+                  onClick={() => borrarProd(product.id)}
+                  className="carrito__item__delete"
+                >
+                  Eliminar
+                </button>
               </div>
             </div>
           ))}
-          <h2>Cantidad de productos:{cantidadProductos()}</h2>
-          <h2>Total: ${calcularTotal()}</h2>
+          <div>
+            <h2>Cantidad de productos:{cantidadProductos()}</h2>
+            <h2>Total: ${calcularTotal()}</h2>
+            <div>
+              {" "}
+              <button className="button__agregar" onClick={vaciarCarrito}>
+                Vaciar carrito
+              </button>
+              <Link to="/checkout">
+                <button className="button__agregar">Finalizar Compra</button>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
-      <div
-        style={{
-          marginTop: "40px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {" "}
-        <button onClick={vaciarCarrito}>Vaciar carrito</button>
-        <Link to="/checkout">Finalizar compra</Link>
-      </div>
     </>
   );
 };

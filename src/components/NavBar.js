@@ -5,22 +5,34 @@ const NavBar = () => {
   return (
     <nav className="navBar">
       <div className="navBar__title">
-        <NavLink to="/">Tienda Pokémon</NavLink>
+        <NavLink to="/">
+          <img
+            id="logo"
+            src="https://www.narita-airport.jp/img/original/3786"
+          ></img>
+        </NavLink>
       </div>
       <div className="navBar__items">
         <li>
           <CartWidget />
         </li>
-
-        <li>
-          <NavLink to="/category/productos">Catálogo de productos</NavLink>
-        </li>
-        <li>
-          <NavLink to="/category/GameBoy">GameBoy</NavLink>
-        </li>
-        <li>
-          <a href="#">Contacto</a>
-        </li>
+        <div className="navBar__links">
+          <li>
+            <NavLink to="/category/productos">Catálogo de productos</NavLink>
+          </li>
+          <li>
+            <NavLink to="/category/GameBoy">GameBoy</NavLink>
+          </li>
+          <li>
+            <NavLink to="/category/GameBoy Color">Gameboy Color</NavLink>
+          </li>
+          <li>
+            <NavLink to="/category/GameBoy Advance">GameBoy Advance</NavLink>
+          </li>
+          <li>
+            <a href="#">Contacto</a>
+          </li>
+        </div>
       </div>
     </nav>
   );

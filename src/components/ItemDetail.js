@@ -13,31 +13,18 @@ const ItemDetail = ({ item }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        margin: "40px",
-      }}
-    >
-      <img src={item.img} alt={item.name} width={200} />
-      <div>
+    <div className="item__detail__container">
+      <div className="item__detail__img">
+        <img src={item.img} alt={item.name} width={250} />
+      </div>
+      <div className="item__detail__text">
         <h2>{item.title}</h2>
         <p>{item.description}</p>
-        <h3>$ {item.price}</h3>
+        <h3>${item.price}</h3>
         {cantidad === 0 ? (
           <ItemCount stock={item.stock} onAdd={onAdd} />
         ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="item__detail__botonera">
             <Link to="/carrito">
               <button className="button__agregar">Finalizar Compra</button>
             </Link>
