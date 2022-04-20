@@ -2,6 +2,7 @@ import Header from "./Header";
 import Footer from "./components/Footer";
 import Main from "./Main";
 import { CartContextProvider } from "./context/CartContext";
+import React from "react";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

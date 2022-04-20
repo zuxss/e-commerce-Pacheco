@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 const Success = () => {
   return (
     <div className="compra__exitosa">

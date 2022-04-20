@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import React from "react";
 
 const ItemListContainer = () => {
   const [items, setProductos] = useState([]);
@@ -45,7 +46,7 @@ const ItemListContainer = () => {
     );
   } else {
     if ((categoryId !== "products") & (categoryId !== undefined)) {
-      let productosFiltrados = items.filter(function (obj) {
+      let productosFiltrados = items.filter(function(obj) {
         return obj.category === `${categoryId}`;
       });
       return <ItemList products={productosFiltrados} />;

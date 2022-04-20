@@ -4,6 +4,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Form from "./components/Form";
 import Success from "./components/Succes";
+import React from "react";
 
 const Main = () => {
   return (
