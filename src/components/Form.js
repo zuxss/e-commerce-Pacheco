@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
 
 function Form() {
   const { cart, calcularTotal } = useContext(CartContext);
@@ -128,6 +127,7 @@ function Form() {
           type="email"
           onChange={handleEmail}
           value={email}
+          required
         />
 
         <button onClick={handleSubmit} id="enviar-button">

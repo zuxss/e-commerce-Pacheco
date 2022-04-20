@@ -23,8 +23,7 @@ const ItemListContainer = () => {
       const productosCollection = collection(db, "productos");
       const filtro = query(
         productosCollection,
-        where("category", "==", categoryId),
-        where("price", ">", 60)
+        where("category", "==", categoryId)
       );
       const pedido = getDocs(filtro);
 
@@ -39,9 +38,13 @@ const ItemListContainer = () => {
   }, [categoryId]);
 
   if (loading) {
-    return <h1>Cargando...</h1>;
+    return (
+      <div className="item__detail">
+        <h1>Cargando...</h1>
+      </div>
+    );
   } else {
-    if ((categoryId != "products") & (categoryId != undefined)) {
+    if ((categoryId !== "products") & (categoryId !== undefined)) {
       let productosFiltrados = items.filter(function (obj) {
         return obj.category === `${categoryId}`;
       });

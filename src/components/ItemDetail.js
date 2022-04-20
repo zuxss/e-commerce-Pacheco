@@ -20,12 +20,13 @@ const ItemDetail = ({ item }) => {
       <div className="item__detail__text">
         <h2>{item.title}</h2>
         <p>{item.description}</p>
+        <h3>Disponibles: {item.stock}</h3>
         <h3>${item.price}</h3>
         {cantidad === 0 ? (
           <ItemCount stock={item.stock} onAdd={onAdd} />
         ) : (
           <div className="item__detail__botonera">
-            <Link to="/carrito">
+            <Link to="/cart">
               <button className="button__agregar">Finalizar Compra</button>
             </Link>
             <Link to="/category/productos">

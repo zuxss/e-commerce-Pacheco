@@ -30,7 +30,7 @@ const NavBar = () => {
             <NavLink to="/category/GameBoy Advance">GameBoy Advance</NavLink>
           </li>
           <li>
-            <a href="#">Contacto</a>
+            <NavLink to="/category/Nintendo DS">DS</NavLink>
           </li>
         </div>
       </div>

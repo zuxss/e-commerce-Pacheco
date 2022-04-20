@@ -16,19 +16,11 @@ body,
   flex-direction: column;
 }
 
-body {
-  background-color: fff;
-}
-
 .header,
 footer {
   background-color: #0054a6;
 }
 
-.header {
-  box-shadow: 0px 0px 6px black;
-  z-index: 100;
-}
 .header > .navBar {
   display: flex;
   align-items: center;
@@ -90,7 +82,6 @@ footer > .navBar {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  list-style: none;
   color: #fff;
   font-size: 0.6rem;
   font-weight: 100;
@@ -116,11 +107,11 @@ a {
   margin-bottom: 10px;
 }
 
-.item__detail {
+.item__detail__link {
   font-weight: bold;
 }
 
-.item__detail:hover {
+.item__detail__link:hover {
   color: #0054a6;
   font-size: 18px;
 }
@@ -134,17 +125,18 @@ a {
 }
 
 /*Item Detail*/
-
-.item__detail__container {
+.item__detail {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
-  border-radius: 10px;
-  padding: 1rem;
 }
+
+.item__detail__container {
+  display: flex;
+}
+
 .item__detail__text {
   text-align: center;
 }
@@ -373,7 +365,6 @@ form input {
   justify-content: center;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
   padding: 1rem;
 }
 .compra__exitosa h1 {
@@ -394,6 +385,15 @@ form input {
   }
   #logo {
     width: 30%;
+  }
+
+  .item__detail__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    height: 100vh;
   }
   #compra__exitosa__img {
     width: 100%;

@@ -4,6 +4,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 //Comoponente en Scope
 import App from "./App";
-import "./style.css";
+import "./assets/style.css";
 //Poner componente en el DOM
 ReactDOM.render(<App />, document.getElementById("root"));

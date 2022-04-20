@@ -12,7 +12,9 @@ const ItemCount = ({ stock, onAdd }) => {
   };
 
   const handleAdd = () => {
-    onAdd(number);
+    if (number !== 0) {
+      onAdd(number);
+    }
   };
 
   return (
