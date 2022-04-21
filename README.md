@@ -2,6 +2,10 @@
 
 Proyecto realizado en el contexto del curso de React de la plataforma Coderhouse.
 
+# Demo
+
+Sitio: https://carrito-poke.netlify.app/
+
 # Descripción
 
 Simulador de E-Commerce realizado en React y complementado con Firebase
@@ -14,9 +18,11 @@ Simulador de E-Commerce realizado en React y complementado con Firebase
 - Firebase
 - Native CSS
 
-# Instalación
+# Setup
 
 - git clone https://github.com/zuxss/e-commerce-Pacheco.git
 - cd e-commerce-Pacheco
-- npm install
+- npm install react-app
+- npm install react-router-DOM
+- npm npm install --save react-toastify
 - npm start

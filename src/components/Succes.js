@@ -3,7 +3,7 @@ import React from "react";
 const Success = () => {
   return (
     <div className="compra__exitosa">
-      <h1>¡Compra realizada con exito!</h1>
+      <h1>¡Compra realizada con éxito!</h1>
       <img
         alt="compra exitosa"
         id="compra__exitosa__img"
